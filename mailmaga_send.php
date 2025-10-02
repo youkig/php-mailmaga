@@ -10,6 +10,15 @@
 <body>
     <?php
 
+//DB接続
+
+    try {
+        $dbh = new PDO('mysql:host=hostname;dbname=dbname', 'userid', 'password');
+    } catch (PDOException $e) {
+        echo "接続失敗: " . $e->getMessage() . "\n";
+        exit();
+    }
+
     //会員メール一覧テキスト取得ここから
     $folder = "./data/";
     $file = $folder . 'mailmaga.txt';
